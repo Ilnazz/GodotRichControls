@@ -3,7 +3,6 @@
 namespace Godot.RichControls.Ranges;
 
 // TODO: Refactor this in the future
-[GlobalClass]
 [INotifyPropertyChanged]
 public partial class ItemsHSlider : HSlider
 {

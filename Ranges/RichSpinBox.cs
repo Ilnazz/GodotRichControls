@@ -2,7 +2,6 @@ using CommunityToolkit.Mvvm.ComponentModel;
 
 namespace Godot.RichControls.Ranges;
 
-[GlobalClass]
 [INotifyPropertyChanged]
 public partial class RichSpinBox : SpinBox
 {

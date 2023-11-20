@@ -1,9 +1,9 @@
 using EasyBindings;
 using EasyBindings.Interfaces;
+using Godot.RichControls.Buttons;
 
 namespace Godot.RichControls;
 
-[GlobalClass]
 public partial class CollapsiblePanelContainer : PanelContainer, IUnsubscribe
 {
 	private const string IconsPath = "res://Addons/RichControls/Icons",

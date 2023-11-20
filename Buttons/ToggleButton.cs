@@ -2,7 +2,6 @@ using CommunityToolkit.Mvvm.ComponentModel;
 
 namespace Godot.RichControls.Buttons;
 
-[GlobalClass]
 [INotifyPropertyChanged]
 public partial class ToggleButton : Button
 {

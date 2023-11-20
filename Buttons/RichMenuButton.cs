@@ -24,7 +24,6 @@ public enum MenuItemType
 	Separator
 }
 
-[GlobalClass]
 public partial class RichMenuButton : MenuButton
 {
 	#region Properties

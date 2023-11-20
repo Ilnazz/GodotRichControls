@@ -3,7 +3,6 @@ using EasyBindings.Interfaces;
 
 namespace Godot.RichControls.Buttons;
 
-[GlobalClass]
 [INotifyPropertyChanged]
 public partial class RichButton : Button, ICommandExecutor
 {

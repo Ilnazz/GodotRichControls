@@ -2,7 +2,6 @@
 
 namespace Godot.RichControls;
 
-[GlobalClass]
 [INotifyPropertyChanged]
 public partial class RichTextEdit : TextEdit
 {

@@ -18,7 +18,6 @@ public enum OptionItemType
 	Separator
 }
 
-[GlobalClass]
 public partial class RichOptionButton : OptionButton
 {
 	#region Properties

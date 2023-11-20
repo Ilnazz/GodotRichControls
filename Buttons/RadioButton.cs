@@ -3,7 +3,6 @@ using Godot.RichControls.Buttons.Groups;
 
 namespace Godot.RichControls.Buttons;
 
-[GlobalClass]
 [INotifyPropertyChanged]
 public partial class RadioButton : CheckBox
 {
