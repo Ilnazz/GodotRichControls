@@ -1,7 +1,4 @@
-using System;
-using System.Collections.Generic;
-using Godot;
-
+namespace Godot.RichControls.Buttons;
 public class OptionItem
 {
 	public string Text { get; }

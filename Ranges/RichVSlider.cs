@@ -1,9 +1,10 @@
 using CommunityToolkit.Mvvm.ComponentModel;
-using Godot;
+
+namespace Godot.RichControls.Ranges;
 
 [GlobalClass]
 [INotifyPropertyChanged]
-public partial class RichHSlider : HSlider
+public partial class RichVSlider : VSlider
 {
 	public new double Value
 	{
@@ -22,15 +23,15 @@ public partial class RichHSlider : HSlider
         }
 	}
 
-	public int IntValue
-	{
-		get => (int)Value;
-		set => Value = value;
-	}
-
-	public RichHSlider() => ValueChanged += _ =>
-	{
-		OnPropertyChanged(nameof(Value));
+    public int IntValue
+    {
+        get => (int)Value;
+        set => Value = value;
+    }
+    
+	public RichVSlider() => ValueChanged += _ =>
+    {
+        OnPropertyChanged(nameof(Value));
         OnPropertyChanged(nameof(IntValue));
-	};
+    };
 }

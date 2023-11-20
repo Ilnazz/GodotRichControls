@@ -1,11 +1,20 @@
 using CommunityToolkit.Mvvm.ComponentModel;
-using Godot;
+using Godot.RichControls.Buttons.Groups;
+
+namespace Godot.RichControls.Buttons;
 
 [GlobalClass]
 [INotifyPropertyChanged]
-public partial class RichCheckButton : CheckButton
+public partial class RadioButton : CheckBox
 {
-	public bool IsChecked
+	private RadioButtonGroup? _group;
+	public RadioButtonGroup? Group
+	{
+		get => _group;
+		set => ButtonGroup = _group = value;
+	}
+
+	public bool IsSelected
 	{
 		get => ButtonPressed;
 		set
@@ -32,5 +41,5 @@ public partial class RichCheckButton : CheckButton
         }
 	}
 
-	public RichCheckButton() => Toggled += _ => OnPropertyChanged(nameof(IsChecked));
+	public RadioButton() => Toggled += _ => OnPropertyChanged(nameof(IsSelected));
 }

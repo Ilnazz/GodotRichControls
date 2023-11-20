@@ -1,9 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-
-using CommunityToolkit.Mvvm.ComponentModel;
+﻿using CommunityToolkit.Mvvm.ComponentModel;
 using EasyBindings;
-using Godot;
+
+namespace Godot.RichControls.Buttons.Groups;
 
 [INotifyPropertyChanged]
 public partial class RadioButtonGroup : ButtonGroup

@@ -1,9 +1,10 @@
 using CommunityToolkit.Mvvm.ComponentModel;
-using Godot;
+
+namespace Godot.RichControls.Buttons;
 
 [GlobalClass]
 [INotifyPropertyChanged]
-public partial class RichCheckBox : CheckBox
+public partial class RichCheckButton : CheckButton
 {
 	public bool IsChecked
 	{
@@ -28,9 +29,9 @@ public partial class RichCheckBox : CheckBox
 		{
 			Disabled = value is false;
 
-			OnPropertyChanged();
-		}
+            OnPropertyChanged();
+        }
 	}
 
-	public RichCheckBox() => Toggled += _ => OnPropertyChanged(nameof(IsChecked));
+	public RichCheckButton() => Toggled += _ => OnPropertyChanged(nameof(IsChecked));
 }

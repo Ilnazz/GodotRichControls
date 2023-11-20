@@ -1,7 +1,6 @@
 ﻿using CommunityToolkit.Mvvm.ComponentModel;
-using Godot;
-using System.Collections.Generic;
-using System.Linq;
+
+namespace Godot.RichControls.Ranges;
 
 // TODO: Refactor this in the future
 [GlobalClass]

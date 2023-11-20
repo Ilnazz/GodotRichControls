@@ -1,6 +1,7 @@
 using EasyBindings;
 using EasyBindings.Interfaces;
-using Godot;
+
+namespace Godot.RichControls;
 
 [GlobalClass]
 public partial class CollapsiblePanelContainer : PanelContainer, IUnsubscribe
@@ -10,15 +11,25 @@ public partial class CollapsiblePanelContainer : PanelContainer, IUnsubscribe
 						 VisibleIconName = "TreeArrowDown.png";
 
 	// TODO: Preloading and proper addoning it
-	private CompressedTexture2D _collapsedIcon = ResourceLoader.Load<CompressedTexture2D>($"{IconsPath}/{CollapsedIconName}"),
-                                _visibleIcon = ResourceLoader.Load<CompressedTexture2D>($"{IconsPath}/{VisibleIconName}");
+	private static CompressedTexture2D _collapsedIcon = null!,
+									   _visibleIcon = null!;
 
-    public override void _Ready()
+	#region Setting up
+	public override void _Ready()
 	{
+		LoadIcons();
+
 		SetupCollapseToggleButton();
 		SetupTitleContainer();
 		SetupBodyContainer();
 	}
+
+	private void LoadIcons()
+	{
+		_collapsedIcon = ResourceLoader.Load<CompressedTexture2D>($"{IconsPath}/{CollapsedIconName}");
+		_visibleIcon = ResourceLoader.Load<CompressedTexture2D>($"{IconsPath}/{VisibleIconName}");
+    }
+	#endregion
 
 	#region Controls
 	#region Collapse toggle button

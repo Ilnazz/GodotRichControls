@@ -1,7 +1,7 @@
-using System;
 using CommunityToolkit.Mvvm.ComponentModel;
 using EasyBindings.Interfaces;
-using Godot;
+
+namespace Godot.RichControls.Buttons;
 
 [GlobalClass]
 [INotifyPropertyChanged]

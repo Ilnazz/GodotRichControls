@@ -1,5 +1,6 @@
 using CommunityToolkit.Mvvm.ComponentModel;
-using Godot;
+
+namespace Godot.RichControls.Buttons;
 
 [GlobalClass]
 [INotifyPropertyChanged]
