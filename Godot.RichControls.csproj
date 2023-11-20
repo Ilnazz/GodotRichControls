@@ -14,7 +14,7 @@
 
   <ItemGroup>
     <Reference Include="EasyBindings">
-      <HintPath>..\Ilnazz\EasyBindings\src\EasyBindings\bin\Debug\net7.0\EasyBindings.dll</HintPath>
+      <HintPath>..\EasyBindings\src\EasyBindings\bin\Release\net7.0\EasyBindings.dll</HintPath>
     </Reference>
   </ItemGroup>
 

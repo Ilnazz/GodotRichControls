@@ -1,27 +1,30 @@
 namespace Godot.RichControls.Buttons;
-public class OptionItem
-{
-	public string Text { get; }
-
-	public OptionItemType Type { get; }
-
-	public OptionItem(string text, OptionItemType type = OptionItemType.Text)
-    {
-        Text = text;
-        Type = type;
-    }
-}
-
-public enum OptionItemType
-{
-	Text,
-	Separator
-}
 
 public partial class RichOptionButton : OptionButton
 {
-	#region Properties
-	public OptionItem? SelectedItem
+    #region Data types
+    public class OptionItem
+    {
+        public string Text { get; }
+
+        public OptionItemType Type { get; }
+
+        public OptionItem(string text, OptionItemType type = OptionItemType.Text)
+        {
+            Text = text;
+            Type = type;
+        }
+    }
+
+    public enum OptionItemType
+    {
+        Text,
+        Separator
+    }
+    #endregion
+
+    #region Properties
+    public OptionItem? SelectedItem
 	{
 		get => SelectedIndex is not -1 ? _items[SelectedIndex] : null;
 		set

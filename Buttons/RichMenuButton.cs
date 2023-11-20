@@ -1,33 +1,35 @@
 namespace Godot.RichControls.Buttons;
 
-public class MenuItem
-{
-	public string Text { get; }
-
-	public MenuItemType Type { get; }
-
-	public string? ActionName { get; }
-
-    public MenuItem(string text, MenuItemType type = MenuItemType.Text, string? actionName = null)
-	{
-		Text = text;
-		Type = type;
-		ActionName = actionName;
-	}
-}
-
-public enum MenuItemType
-{
-	Text,
-	CheckBox,
-	RadioButton,
-	Separator
-}
-
 public partial class RichMenuButton : MenuButton
 {
-	#region Properties
-	public bool IsEnabled
+    #region Data types
+	public class MenuItem
+    {
+        public string Text { get; }
+
+        public MenuItemType Type { get; }
+
+        public string? ActionName { get; }
+
+        public MenuItem(string text, MenuItemType type = MenuItemType.Text, string? actionName = null)
+        {
+            Text = text;
+            Type = type;
+            ActionName = actionName;
+        }
+    }
+
+    public enum MenuItemType
+    {
+        Text,
+        CheckBox,
+        RadioButton,
+        Separator
+    }
+    #endregion
+
+    #region Properties
+    public bool IsEnabled
 	{
 		get => Disabled is false;
 		set => Disabled = value is false;

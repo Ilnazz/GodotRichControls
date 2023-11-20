@@ -18,7 +18,8 @@ public partial class RichButton : Button, ICommandExecutor
 	}
 
 	public bool CanExecuteCommand
-	{
+    {
+        get => IsEnabled;
 		set => IsEnabled = value;
 	}
 
