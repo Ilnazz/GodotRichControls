@@ -54,6 +54,9 @@ public partial class RadioButtonGroup : ButtonGroup
 
         radioButton.Group = this;
 
+        if (radioButton.IsSelected)
+            _selectedButton = radioButton;
+
         TriggerBinder.OnPropertyChanged(this, radioButton, o => o.IsSelected, isSelected =>
         {
             if (!isSelected)
