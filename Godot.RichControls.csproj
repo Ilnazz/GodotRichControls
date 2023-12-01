@@ -8,8 +8,8 @@
 
   <ItemGroup>
     <PackageReference Include="CommunityToolkit.Mvvm" Version="8.2.2" />
-    <PackageReference Include="Godot.SourceGenerators" Version="4.1.3" />
-    <PackageReference Include="GodotSharp" Version="4.1.3" />
+    <PackageReference Include="Godot.SourceGenerators" Version="4.2.0" />
+    <PackageReference Include="GodotSharp" Version="4.2.0" />
   </ItemGroup>
 
   <ItemGroup>
