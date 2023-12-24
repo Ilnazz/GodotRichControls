@@ -1,5 +1,8 @@
+using CommunityToolkit.Mvvm.ComponentModel;
+
 namespace Godot.RichControls.Buttons;
 
+[ObservableObject]
 public partial class RichOptionButton : OptionButton
 {
     #region Data types
@@ -14,6 +17,8 @@ public partial class RichOptionButton : OptionButton
             Text = text;
             Type = type;
         }
+
+        public override int GetHashCode() => HashCode.Combine(Text, (int)Type);
     }
 
     public enum OptionItemType
@@ -75,6 +80,8 @@ public partial class RichOptionButton : OptionButton
 	#endregion
 
 	public new event Action<OptionItem>? ItemSelected;
+
+	public event Action<int>? IndexSelected;
 
 	public RichOptionButton() => base.ItemSelected += OnItemSelected;
 

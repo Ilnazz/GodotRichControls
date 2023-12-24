@@ -77,7 +77,7 @@ public partial class RadioButtonGroup : ButtonGroup
 
     public void Clear()
     {
-        foreach (var button in _buttons)
+        foreach (var button in _buttons.ToArray())
             Remove(button);
     }
     #endregion

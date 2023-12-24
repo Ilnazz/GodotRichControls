@@ -76,7 +76,7 @@ public class ToggleButtonGroup : ObservableObject
 
     public void Clear()
     {
-        foreach (var button in _buttons)
+        foreach (var button in _buttons.ToArray())
             Remove(button);
     }
 

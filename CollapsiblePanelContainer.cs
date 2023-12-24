@@ -6,29 +6,52 @@ namespace Godot.RichControls;
 
 public partial class CollapsiblePanelContainer : PanelContainer, IUnsubscribe
 {
-	private const string IconsPath = "res://Addons/RichControls/Icons",
-						 CollapsedIconName = "TreeArrowRight.png",
-						 VisibleIconName = "TreeArrowDown.png";
+	private const string
+        ResourcesDirPath = "res://Addons/RichControls/Assets/CollapsiblePanelContainer",
+		IconsDirName = "Icons",
+		StyleBoxesDirName = "StyleBoxes",
 
-	// TODO: Preloading and proper addoning it
+        CollapsedIconName = "Collapsed",
+        VisibleIconName = "Visible",
+        TitleStyleBoxName = "TitleStyleBox";
+
 	private static CompressedTexture2D _collapsedIcon = null!,
 									   _visibleIcon = null!;
 
-	#region Setting up
-	public override void _Ready()
-	{
-		LoadIcons();
+    private static StyleBoxFlat _titleStyleBox = null!;
 
+    #region Preloading resources
+	static CollapsiblePanelContainer()
+    {
+        LoadIcons();
+        LoadStyleBoxes();
+    }
+
+    private static void LoadIcons()
+    {
+        _collapsedIcon = LoadIcon(CollapsedIconName);
+        _visibleIcon = LoadIcon(VisibleIconName);
+    }
+
+	private static CompressedTexture2D LoadIcon(string name) =>
+        ResourceLoader.Load<CompressedTexture2D>($"{ResourcesDirPath}/{IconsDirName}/{name}.png");
+
+    private static void LoadStyleBoxes()
+    {
+        _titleStyleBox = LoadStyleBox(TitleStyleBoxName);
+    }
+
+    private static StyleBoxFlat LoadStyleBox(string name) =>
+        ResourceLoader.Load<StyleBoxFlat>($"{ResourcesDirPath}/{StyleBoxesDirName}/{name}.tres");
+    #endregion
+
+    #region Setting up
+    public override void _Ready()
+	{
 		SetupCollapseToggleButton();
 		SetupTitleContainer();
 		SetupBodyContainer();
 	}
-
-	private void LoadIcons()
-	{
-		_collapsedIcon = ResourceLoader.Load<CompressedTexture2D>($"{IconsPath}/{CollapsedIconName}");
-		_visibleIcon = ResourceLoader.Load<CompressedTexture2D>($"{IconsPath}/{VisibleIconName}");
-    }
 	#endregion
 
 	#region Controls
@@ -46,28 +69,29 @@ public partial class CollapsiblePanelContainer : PanelContainer, IUnsubscribe
 
 	#region Title container
 	private PanelContainer _titlePanelContainer = null!;
-	private StyleBoxFlat _titleContainerStylebox = null!;
 
 	private void SetupTitleContainer()
 	{
 		_titlePanelContainer = (PanelContainer)FindChild("TitlePanelContainer");
-		_titleContainerStylebox = (StyleBoxFlat)_titlePanelContainer.GetThemeStylebox("panel");
+		_titlePanelContainer.AddThemeStyleboxOverride("panel", _titleStyleBox.Duplicate() as StyleBox);
 
-		TriggerBinder.OnPropertyChanged(this, CollapseToggleButton, o => o.IsToggled, UpdateTitlePanelContainerStyleBox);
-		UpdateTitlePanelContainerStyleBox(CollapseToggleButton.IsToggled);
+		TriggerBinder.OnPropertyChanged(this, CollapseToggleButton, o => o.IsToggled, UpdateTitleStyleBoxCorners);
+		UpdateTitleStyleBoxCorners(CollapseToggleButton.IsToggled);
 	}
 
-	private void UpdateTitlePanelContainerStyleBox(bool isCollapsed)
-	{
+	private void UpdateTitleStyleBoxCorners(bool isCollapsed)
+    {
+        var titleStyleBox = (StyleBoxFlat)_titlePanelContainer.GetThemeStylebox("panel");
+
 		if (isCollapsed)
 		{
-			_titleContainerStylebox.CornerRadiusBottomLeft = 0;
-			_titleContainerStylebox.CornerRadiusBottomRight = 0;
+            titleStyleBox.CornerRadiusBottomLeft = 0;
+            titleStyleBox.CornerRadiusBottomRight = 0;
 		}
 		else
 		{
-			_titleContainerStylebox.CornerRadiusBottomLeft = 3;
-			_titleContainerStylebox.CornerRadiusBottomRight = 3;
+            titleStyleBox.CornerRadiusBottomLeft = 3;
+            titleStyleBox.CornerRadiusBottomRight = 3;
 		}
 	}
 	#endregion
