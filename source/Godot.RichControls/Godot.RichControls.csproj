@@ -1,7 +1,7 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFramework>net7.0</TargetFramework>
+    <TargetFramework>net8.0</TargetFramework>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
   </PropertyGroup>
@@ -14,7 +14,7 @@
 
   <ItemGroup>
     <Reference Include="EasyBindings">
-      <HintPath>..\EasyBindings\src\EasyBindings\bin\Release\net7.0\EasyBindings.dll</HintPath>
+      <HintPath>..\..\libraries\EasyBindings.dll</HintPath>
     </Reference>
   </ItemGroup>
 

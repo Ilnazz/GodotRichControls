@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.7.34031.279
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Godot.RichControls", "Godot.RichControls.csproj", "{0A948A22-CBAC-47A0-A1F9-2A58E900D966}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Godot.RichControls", "source\Godot.RichControls\Godot.RichControls.csproj", "{0A948A22-CBAC-47A0-A1F9-2A58E900D966}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
